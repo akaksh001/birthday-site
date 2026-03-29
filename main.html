@@ -1,0 +1,882 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Pacifico&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<title>Happy Birthday 🎂</title>
+
+<style>
+body {
+    position: relative;
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: #f3ebe4;
+    color: #444;
+    
+}
+.font-change {
+    transition: all 0.5s ease;
+}
+.font-change.animate {
+    transform: scale(1.05);
+}
+
+/* Sections */
+section {
+    padding: 60px 20px;
+    text-align: center;
+}
+
+/* HERO */
+.hero {
+    position: relative;
+    z-index: 0;
+    background: url('https://plus.unsplash.com/premium_photo-1672944876342-4090164e1c04?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8dGV4dHVyZXxlbnwwfHwwfHx8MA%3D%3D') center/cover no-repeat;
+}
+
+/* Dark overlay for readability */
+.hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(255, 255, 255, 0.322);
+}
+
+.sticker {
+    position: absolute;
+    width: 80px;
+    pointer-events: none; /* so it doesn't block clicks */
+    opacity: 0;
+    z-index: 1;
+    animation: fadeInSticker 5s ease-in-out infinite;
+}
+
+
+/* Positions */
+.s1 { top: 10%; left: 5%; }
+.s2 { top: 15%; right: 10%; }
+.s3 { top: 30%; left: 55%; }
+.s4 { bottom: 60%; right: 55%; }
+.s5 { bottom: 90%; left: 55%; }
+
+
+.s1 { animation-delay: 0.3s; }
+.s2 { animation-delay: 0.6s; }
+.s3 { animation-delay: 0.9s; }
+.s4 { animation-delay: 0.12s; }
+.s5 { animation-delay: 0.10s; }
+
+
+/* Container for side layout */
+.hero-container {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 200px;
+    height: 100vh;
+    padding: 20px;
+    flex-wrap: wrap;
+}
+
+/* Text styling */
+.hero-text {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;  /* LEFT align */
+    justify-content: center;
+    gap: 12px;
+}
+
+
+.hero-text h1 {
+    font-size: 42px;
+    color: #ff4e88;
+    margin-bottom: 50px;
+
+}
+
+.hero-text p {
+    font-size: 18px;
+    color: #666;
+    margin-bottom: 10px;
+}
+
+
+.polaroid {
+  background: white;
+  padding: 15px 15px 40px 15px; /* extra bottom = polaroid look */
+  box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+  transform: rotate(-8deg); /* tilt */
+  transition: transform 0.4s ease;
+}
+
+.polaroid img {
+  display: block;
+  width: 300px;
+  height: auto;
+}
+
+/* Hover effect (optional premium feel) */
+.polaroid:hover {
+  transform: rotate(0deg) scale(1.05);
+}
+
+/* BUTTON */
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    border: 2px solid #ff4e88;
+    border-radius: 20px;
+    color: #ff4e88;
+    margin-top: 30px;
+    cursor: pointer;
+    transition: 0.3s;
+    align-self: center; 
+}
+
+.btn:hover {
+    background: #ff4e88;
+    color: white;
+}
+
+/* ABOUT */
+.about {
+    background: linear-gradient(to bottom, #ffffff, #fff0f5);
+    text-align: center;
+    padding: 80px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+
+}
+
+/* Title */
+.section-title {
+    color: transparent;
+    letter-spacing: 1px;
+    font-family: 'Playfair Display', serif;
+    font-size: 42px;
+    background: linear-gradient(45deg, #fb286f, #ff7aa2);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 60px;
+    animation: shine 3s linear infinite;
+}
+@keyframes shine {
+    to {
+        background-position: 200%;
+    }
+}
+
+/* Underline accent */
+.section-title::after {
+    content: "";
+    width: 80px;
+    height: 3px;
+    background: #ff4e88;
+    display: block;
+    margin: 10px auto 0;
+    border-radius: 10px;
+}
+
+/* Container (3 columns) */
+.about-container {
+    display: flex;
+    justify-content: center;
+    gap: 70px;
+    flex-wrap: wrap;
+}
+
+/* Cards */
+.about-card {
+    background: #f9f9f9;
+    padding: 25px;
+    border-radius: 20px;
+    width: 250px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    transition: 0.3s;
+}
+
+/* Image inside card */
+.about-card img {
+    width: 100%;
+    border-radius: 15px;
+    margin-bottom: 15px;
+}
+
+/* Hover */
+.about-card:hover {
+    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+    transform: translateY(-10px) scale(1.03);
+
+}
+
+/* Text styling */
+.about-card h3 {
+    color: #ff4e88;
+    margin-bottom: 10px;
+}
+
+.about-card p {
+    color: #666;
+    font-size: 15px;
+}
+
+/*about transition*/
+.about-card:nth-child(1) {
+    transition-delay: 0.2s;
+}
+.about-card:nth-child(2) {
+    transition-delay: 0.4s;
+}
+.about-card:nth-child(3) {
+    transition-delay: 0.6s;
+}
+/* Flip card container */
+.flip-card {
+    width: 280px;
+    height: 340px;
+    perspective: 1000px;
+    
+}
+
+/* Inner wrapper */
+.flip-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+}
+
+/* Flip on hover */
+.flip-card:hover .flip-inner {
+    transform: rotateY(180deg);
+}
+
+/* Front & Back */
+.flip-front, .flip-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    backface-visibility: hidden;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    
+}
+
+/* Front */
+.flip-front {
+    background: #ffffff;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.flip-front img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 15px;
+    margin-bottom: 15px;
+}
+
+.flip-front h3 {
+    color: #ff4e88;
+    font-size: 20px;
+}
+
+/* Back */
+.flip-back {
+    transform: rotateY(180deg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: linear-gradient(135deg, #ff4e88, #ff7aa2);
+    color: white;
+    font-size: 16px;
+    line-height: 1.5;
+    padding: 25px;
+}
+.flip-card:hover .flip-front {
+    box-shadow: 0 20px 40px rgba(255,78,136,0.3);
+    transform: translateY(-10px);
+    transition: 0.3s;
+}
+
+
+/* MUSIC BUTTON */
+.music-player {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    background: rgba(255,255,255,0.9);
+    padding: 10px 15px;
+    border-radius: 40px;
+
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    cursor: pointer;
+
+    z-index: 9999;
+    transition: 0.3s;
+}
+
+.music-player:hover {
+    transform: scale(1.05);
+}
+
+/* 🎵 Disk */
+.disk {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+
+    background: radial-gradient(circle, #ff4e88 30%, #222 35%);
+    position: relative;
+}
+
+/* center hole */
+.disk::after {
+    content: "";
+    width: 10px;
+    height: 10px;
+    background: white;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* rotation animation */
+.rotate {
+    animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* text */
+.music-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.song-title {
+    font-size: 14px;
+    margin: 0;
+    color: #ff4e88;
+}
+
+.status {
+    font-size: 12px;
+    margin: 0;
+    color: #666;
+}
+
+/* control button */
+.control {
+    font-size: 18px;
+}
+
+/* Animation base */
+.hidden {
+    opacity: 0;
+    transform: translateY(60px);
+    transition: all 1s ease;
+}
+
+.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+.surprise-btn {
+    margin-top: 40px;
+    padding: 12px 25px;
+    border-radius: 30px;
+    background: linear-gradient(45deg, #ff4e88, #ff7aa2);
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.6s ease;
+    animation: pulse 2s infinite;
+}
+
+/* Show animation */
+.surprise-btn.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Hover */
+.surprise-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 25px rgba(255,78,136,0.4);
+}
+
+.video-popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: rgba(0,0,0,0.8);
+    backdrop-filter: blur(8px);
+
+    opacity: 0;
+    pointer-events: none;
+
+    z-index: 9999; /* 🔥 important */
+    transition: 0.4s ease;
+}
+
+/* ACTIVE STATE */
+.video-popup.active {
+    opacity: 1;
+    pointer-events: all;
+}
+
+/* VIDEO BOX */
+.video-content {
+    width: 80%;
+    max-width: 700px;
+    transform: scale(0.7);
+    transition: 0.4s ease;
+}
+
+/* WHEN ACTIVE */
+.video-popup.active .video-content {
+    transform: scale(1);
+}
+
+.video-content video {
+    width: 100%;
+    border-radius: 15px;
+}
+
+/* Close button */
+.close-btn {
+    position: absolute;
+    top: -30px;
+    right: 0;
+    color: white;
+    font-size: 25px;
+    cursor: pointer;
+}
+@keyframes pulse {
+    0% { box-shadow: 0 0 0 rgba(255,78,136,0.4); }
+    70% { box-shadow: 0 0 20px rgba(255,78,136,0.6); }
+    100% { box-shadow: 0 0 0 rgba(255,78,136,0.4); }
+}
+
+.confetti {
+    position: fixed;
+    top: -10px;
+    width: 8px;
+    height: 8px;
+    opacity: 0.9;
+    z-index: 10000;
+    animation: fall linear forwards;
+}
+
+/* Different shapes */
+.confetti.circle {
+    border-radius: 50%;
+}
+
+.confetti.rect {
+    width: 6px;
+    height: 10px;
+}
+
+/* Falling animation */
+@keyframes fall {
+    to {
+
+        transform: translateY(100vh) translateX(50px) rotate(720deg);
+        opacity: 1;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero {
+        background-size: cover;
+        background-position: center top;
+    }
+
+    .hero-container {
+        flex-direction: column;
+        align-items: center;   /* horizontal */
+        justify-content: center; /* vertical */
+        text-align: center;
+    }
+
+    .hero-text {
+        text-align: center;
+    }
+    .about-container {
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+    }
+    .about-card {
+        width: 90%;
+    }
+    .flip-card {
+        width: 90%;
+        height: 320px;
+    }
+    .section-title {
+        font-size: 30px;
+    }
+}
+@keyframes fadeInSticker {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    50% {
+        opacity: 0.9;
+        transform: translateY(0);
+    }
+    100% {
+        opacity: 0.9;
+        transform: translateY(-15px);
+    }
+}
+
+
+/* Left & right slide */
+.slide-left {
+    transform: translateX(-80px);
+}
+
+.slide-right {
+    transform: translateX(80px);
+}
+
+
+.show.slide-left,
+.show.slide-right {
+    transform: translateX(0);
+}
+section {
+    height: 100vh; /* full screen height */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+html {
+    scroll-behavior: smooth;
+}
+</style>
+</head>
+
+<body>
+
+<!-- 🎈 STICKERS -->
+<img src="sticker2.png" class="sticker fade-in s1">
+<img src="sticker4.png" class="sticker fade-in s2">
+<img src="sticker3.png" class="sticker fade-in s3">
+<img src="sticker5.png" class="sticker fade-in s4">
+<img src="sticker6.png" class="sticker fade-in s5">
+
+<!-- 🎉 HERO -->
+<section class="hero">
+
+
+    <div class="hero-container">
+
+        <!-- 📸 LEFT IMAGE -->
+        <div class="hero-left hidden slide-left">
+            <div class="polaroid">
+                <img src="image1.jpeg" class="blur-img">
+            </div>
+        </div>
+
+        <!-- 💖 RIGHT TEXT -->
+        <div class="hero-right hidden slide-right">
+            <div class="hero-text">
+                <h1 id="typing" class="font-change"></h1>
+                <p>The most amazing person ever, Happy Birthday to my favorite Jeeja Ji!<br> May your day be filled with joy, and your wallet be filled with <br> enough cash to take me out for a massive treat. 😋💖</p>
+                <div class="btn" onclick="scrollToSection()">Explore 🎁</div>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- 💌 ABOUT -->
+<section class="about" id="about">
+
+    <h2 class="section-title hidden">What makes you special? 💖</h2>
+    <div class="about-container">
+
+    <div class="flip-card hidden slide-left">
+        <div class="flip-inner">
+
+            <div class="flip-front">
+                <img src="image1.jpeg">
+                <h3>✨ Kind Heart</h3>
+            </div>
+
+            <div class="flip-back">
+                <p>You always care for others and spread positivity everywhere 💖</p>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="flip-card hidden">
+        <div class="flip-inner">
+
+            <div class="flip-front">
+                <img src="image2.jpeg">
+                <h3>😊 Beautiful Smile</h3>
+            </div>
+
+            <div class="flip-back">
+                <p>Your smile lights up every room and makes everyone happy ✨</p>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="flip-card hidden slide-right">
+        <div class="flip-inner">
+
+            <div class="flip-front">
+                <img src="image3.jpeg">
+                <h3>💪 Strong & Inspiring</h3>
+            </div>
+
+            <div class="flip-back">
+                <p>You inspire everyone with your strength and positivity 🌟</p>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+    
+
+    
+    </div>
+    <div class="surprise-btn hidden" id="surpriseBtn">
+    🎁 Surprise
+    </div>
+
+</section>
+<div class="video-popup" id="videoPopup">
+    <div class="video-content">
+        <span class="close-btn" onclick="closeVideo()">✖</span>
+        <video id="surpriseVideo" controls>
+            <source src="video.mp4" type="video/mp4">
+        </video>
+    </div>
+</div>
+
+
+<!-- 🎵 MUSIC -->
+<audio id="bgMusic" loop>
+    <source src="bgaudio.mpeg" type="audio/mpeg">
+</audio>
+<div class="music-player" onclick="toggleMusic()">
+    
+    <div class="disk" id="disk"></div>
+
+    <div class="music-info">
+        <p class="song-title">Birthday Vibes 🎂</p>
+        <p class="status" id="musicStatus">Tap to Play</p>
+    </div>
+
+    <div class="control" id="controlBtn">▶️</div>
+
+</div>
+
+<script>
+function scrollToSection() {
+    document.getElementById("about").scrollIntoView({ behavior: "smooth" });
+}
+
+function showSurprise() {
+    document.getElementById("surprise").innerHTML =
+    "🎊 You are the best! Stay happy always 💖";
+}
+
+const music = document.getElementById("bgMusic");
+const disk = document.getElementById("disk");
+const statusText = document.getElementById("musicStatus");
+const control = document.getElementById("controlBtn");
+
+let isPlaying = false;
+
+function toggleMusic() {
+    if (!music) {
+        console.error("Audio not found");
+        return;
+    }
+
+    if (isPlaying) {
+        music.pause();
+        disk.classList.remove("rotate");
+        statusText.innerText = "Paused";
+        control.innerHTML = "▶️";
+    } else {
+        music.play();
+        disk.classList.add("rotate");
+        statusText.innerText = "Playing...";
+        control.innerHTML = "⏸️";
+    }
+
+    isPlaying = !isPlaying;
+}
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add("show");
+        }
+    });
+});
+
+document.querySelectorAll(".hidden").forEach(el => {
+    observer.observe(el);
+});
+
+
+const text = "Happy Birthday Jeeja ji 🎂";
+let index = 0;
+
+function typeEffect() {
+    if (index < text.length) {
+        document.getElementById("typing").innerHTML += text.charAt(index);
+        index++;
+        setTimeout(typeEffect, 80);
+    }
+}
+
+window.onload = typeEffect;
+
+const fonts = [
+    "'Poppins', sans-serif",
+    "'Pacifico', cursive",
+    "'Playfair Display', serif"
+];
+
+// Font script 
+let fontIndex = 0;
+
+setInterval(() => {
+    fontIndex = (fontIndex + 1) % fonts.length;
+    document.getElementById("typing").style.fontFamily = fonts[fontIndex];
+}, 2000);
+setInterval(() => {
+    const el = document.getElementById("typing");
+
+    el.classList.add("animate");
+
+    setTimeout(() => {
+        el.classList.remove("animate");
+    }, 300);
+
+    fontIndex = (fontIndex + 1) % fonts.length;
+    el.style.fontFamily = fonts[fontIndex];
+
+}, 2000);
+
+const surpriseBtn = document.getElementById("surpriseBtn");
+const aboutSection = document.getElementById("about");
+const popup = document.getElementById("videoPopup");
+const video = document.getElementById("surpriseVideo");
+
+/* Show button when About is visible */
+const aboutObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            setTimeout(() => {
+                surpriseBtn.classList.add("show");
+            }, 800);
+        }
+    });
+});
+
+aboutObserver.observe(aboutSection);
+
+/* Open video */
+surpriseBtn.onclick = function () {
+    popup.classList.add("active");   // ✅ ONLY THIS
+    document.body.classList.add("blur");
+    video.play();
+
+    createConfettiBurst(); // 🎊 BOOM
+};
+
+/* Close video */
+function closeVideo() {
+    popup.classList.remove("active");
+    document.body.classList.remove("blur");
+
+    video.pause();
+    video.currentTime = 0;
+}
+function createConfettiBurst() {
+    const colors = ["#ff4e88", "#ffd166", "#06d6a0", "#118ab2", "#ffffff"];
+
+    for (let i = 0; i < 60; i++) {
+        const confetti = document.createElement("div");
+
+        confetti.classList.add("confetti");
+
+        // Random shape
+        confetti.classList.add(Math.random() > 0.5 ? "circle" : "rect");
+
+        // Random position
+        confetti.style.left = Math.random() * 100 + "vw";
+
+        // Random color
+        confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+
+        // Random size
+        confetti.style.transform = `scale(${Math.random() * 1.5})`;
+
+        // Random speed
+        confetti.style.animationDuration = (2 + Math.random() * 2) + "s";
+
+        document.body.appendChild(confetti);
+
+        // Remove after animation
+        setTimeout(() => {
+            confetti.remove();
+        }, 4000);
+    }
+}
+
+</script>
+
+</body>
+</html>
